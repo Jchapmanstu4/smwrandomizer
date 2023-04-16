@@ -1,7 +1,7 @@
 var ORIGINAL_ROM = null;
 var BASEURL = window.location.origin + window.location.pathname;
 
-var EN_US = false;
+var EN_US = true;
 var __SMWC = true;
 
 var DEVMODE = window.location.href.indexOf('localhost') != -1;
