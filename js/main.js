@@ -1,7 +1,7 @@
 var ORIGINAL_ROM = null;
 var BASEURL = window.location.origin + window.location.pathname;
 
-var EN_US = false;
+var EN_US = true;
 var __SMWC = true;
 
 var DEVMODE = window.location.href.indexOf('localhost') != -1;
@@ -50,7 +50,7 @@ $('#generate-randomized-rom').click(function(e)
 	// maybe this will be a NaN?
 	var seed = parseInt($('#custom-seed').val(), 16);
 
-	if (ORIGINAL_ROM === true)
+	if (ORIGINAL_ROM === false)
 	{
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', 'smw.sfc', true);
@@ -143,7 +143,7 @@ $('#original-rom').change(function(e)
 $('form').submit(function(e)
 {
 	e.preventDefault();
-	return false;
+	return true;
 });
 
 if (window.atob) __SMWC = document.referrer.toLowerCase().indexOf(atob('c213Y2VudHJhbC5uZXQ=')) != -1;
@@ -153,14 +153,15 @@ if (!__SMWC)
 	$('#authorblues').click(function(e)
 	{
 		checkRomResult(true, true);
-		$('#select-original-rom').prop('disabled', true);
-		$('#cheatmenu').removeClass('hidden');
+		$('#select-original-rom').prop('disabled', false);
+		$('#cheatmenu').removeClass('showed');
 	});
 }
 
 $('#view-changelog').click(function(e)
 {
-	$('#modal-changelog-win .modal-body').load('changelog.html');
+	$('#modal
+	 -changelog-win .modal-body').load('changelog.html');
 	$('#modal-changelog-win').modal('show');
 });
 
